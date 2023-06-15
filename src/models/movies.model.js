@@ -1,17 +1,18 @@
-'use strict';
+"use strict";
 const Movies = (sequelize, DataTypes) =>
-    sequelize.define("people", {
-       movieName: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        release_date: {
-            type: DataTypes.STRING,
-        },
-        overview: {
-            type: DataTypes.STRING,
-        }
-    })
-
+  sequelize.define("movies", {
+    movieName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    release_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    overview: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    }
+  });
 
 module.exports = Movies;
