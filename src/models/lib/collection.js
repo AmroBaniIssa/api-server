@@ -26,13 +26,22 @@ class Collection {
         return record;
     }
    
-    async readAuthorOrders(id, model) {
-        let record = await this.model.findOne({
-            where: { id },
+       async readAuthorBooks(id,model) {
+        let record = await this.model.findAll({
+            where: { authorId: id },
             include: model,
-        });
+        })
+
         return record;
     }
+
+    // async readAuthorBooks(id, model) {
+    //     let record = await this.model.findOne({
+    //         where: { id },
+    //         include: model,
+    //     });
+    //     return record;
+    // }
 
 }
 

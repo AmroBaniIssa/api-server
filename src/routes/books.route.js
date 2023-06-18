@@ -25,7 +25,7 @@ async function createBook(req, res) {
 async function updateBook(req, res) {
     let BookId = parseInt(req.params.id);
     let updateBook = req.body;
-    let updatedBook = await foundBook.update(updateBook, BookId);
+    let updatedBook = await BookModel.update(updateBook, BookId);
     res.status(201).json(updatedBook);
 }
 async function deleteBook(req, res) {

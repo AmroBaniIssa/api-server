@@ -10,12 +10,20 @@ authorsRouter.delete("/author/:id", deleteAuthor);
 
 
 
+// authorsRouter.get("/authorBooks/:id", authorBooks);
+// async function authorBooks(req, res) {
+//     const AuthorId = parseInt(req.params.id);
+//     let authorBooksResult = await AuthorModel.readAuthorBooks(AuthorId, BookModel.model);
+//     res.status(200).json(authorBooksResult);
+// }
+
 authorsRouter.get("/authorBooks/:id", authorBooks);
 async function authorBooks(req, res) {
     const AuthorId = parseInt(req.params.id);
-    let authorBooksResult = await AuthorModel.readAuthorBooks(AuthorId, BookModel.model);
+    let authorBooksResult = await BookModel.readAuthorBooks(AuthorId,AuthorModel.firstName);
     res.status(200).json(authorBooksResult);
 }
+
 async function getAllAuthors(req, res) {
     let authorsResult = await AuthorModel.read();
     res.status(200).json(authorsResult);
